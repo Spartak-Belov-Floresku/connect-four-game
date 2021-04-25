@@ -52,6 +52,10 @@ const makeHtmlBoard = () => {
   }
 }
 
+const removeEvent = () => {
+  document.querySelector("#column-top").removeEventListener("click", handleClick , false);
+}
+
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 const findSpotForCol = (x) => {
@@ -76,11 +80,17 @@ const placeInTable = (y, x) => {
     cell.append(div);
 }
 
+const removeDivsPiece = () =>{
+  const divs = document.querySelectorAll('.piece')
+    for(let div of divs){ div.remove();}
+}
+
 /** endGame: announce game end */
 
 const endGame = (msg) => {
-  // TODO: pop up alert message
-  alert(msg)
+  const h2 = document.querySelector('#tablo h2');
+    h2.innerHTML = msg;
+      makeBoard();
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -103,13 +113,27 @@ const handleClick = (evt) => {
 
   // check for win
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    removeEvent();
+    const player = currPlayer;
+      const tablo = document.querySelector('#tablo');
+        const title = document.querySelector('#title');
+    tablo.classList.toggle("hideDiv");
+      title.classList.toggle("opacity");
+        button.innerText = "Play Again?"
+          return endGame(`Player ${player} won!`);
   }
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
   if(board.every(row => row.every(cell => cell))){
-    return endGame("Game end. Nobody wins!")
+    removeEvent();
+    const player = currPlayer;
+      const tablo = document.querySelector('#tablo');
+        const title = document.querySelector('#title');
+    tablo.classList.toggle("hideDiv");
+      title.classList.toggle("opacity");
+        button.innerText = "Play Again?"
+          return endGame(`Game end, nobody wins!`);
   }
 
   // switch players
@@ -136,7 +160,7 @@ const checkForWin = () => {
   }
 
   // TODO: read and understand this code. Add comments to help you.
-
+  //creates four two dimensional arrays with coordinates-indexes.
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];

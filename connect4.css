@@ -1,19 +1,76 @@
 /* game board table */
-
-#board td {
-  width: 50px;
-  height: 50px;
-  border: solid 1px #666;
+@import url(href=https://fonts.gstatic.com);
+@import url(https://fonts.googleapis.com/css2?family=Bangers&display=swap);
+*{
+	border:none;
+	outline:none;
+	font-weight:200;
+	margin:0;
+	padding:0
 }
+body{
+	text-align:center;
+	font-family:Arial, Verdana, Sans-serif;
+	font-size:12px;
+  background-color: rgb(0, 118, 173);
+  transition: background-color 10s;
+  text-align: center;
+  overflow-y: hidden;
+}
+#title, #tablo h2{
+  font-family: 'Bangers', cursive;
+  margin: 2% 0 1%;
+  font-size:95px;
+  text-shadow: 5px 5px 8px rgb(42, 47, 49);
+  color:steelblue;
+}
+#tablo h2{
+  margin: 0 auto;
+  padding: 10% 0 7%;
+  text-align: center;
+}
+#game{
+  margin: 0% auto;
+  width:700px;
+  padding: 5em;
+  background:skyblue;
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  border-radius: 5px;
+  border: solid 3px cadetblue;
+  opacity:0;
+  transition: 1s ease-in-out;
+}
+#title{
+  opacity:0;
+  transition: 1s ease-in-out;
+}
+#game.opacity,
+#title.opacity{
+  opacity:1;
+}
+#board{
+  overflow: hidden;
+  margin: 0 auto;
+}
+#board td {
+  width: 70px;
+  height: 70px ;
+  border: solid 1px #666;
+  border-width:5px;  
+  border-style:outset;
+  text-decoration: line-through;
+}
+
 
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
   /* TODO: make into circles */
-  margin: 5px;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    margin:0 auto;
+    border-radius: 50%;
+    animation: drop 1s; 
 }
 
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
@@ -26,9 +83,58 @@
 /* column-top is table row of clickable areas for each column */
 
 #column-top td {
-  border: dashed 1px lightgray;
+  border: dashed 2px #666;
+  transition: .2s all;
+  cursor: pointer;
 }
 
 #column-top td:hover {
   background-color: gold;
+}
+#column-top td:active {
+  box-shadow: 0 0 10px rgba(0,0,0,.7) inset;
+}
+#tablo {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  top:0;
+  background-color: rgba(38, 228, 70, .7);
+  box-shadow: 0 0 120px rgba(30, 101, 233, .8) inset
+}
+#tablo.hideDiv{
+  display:none;
+}
+#button{
+  box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:10px 54px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+}
+#button:hover{
+  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	background-color:#0061a7;
+}
+
+#button:active{
+  position:relative;
+	top:1px;
+}
+
+@keyframes drop {
+  from {
+      transform: translateY(-600px);
+  }
+  to {
+      transform: translateY(0);
+  }
 }
