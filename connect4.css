@@ -66,9 +66,14 @@ body{
 
 .piece {
   /* TODO: make into circles */
+<<<<<<< HEAD
     width: 65px;
     height: 65px;
     margin:0 auto;
+=======
+    width: 50px;
+    height: 50px;
+>>>>>>> 9f821e843e4790f661f93e062c998c90ab33b2c5
     border-radius: 50%;
     animation: drop 1s; 
 }
@@ -91,6 +96,7 @@ body{
 #column-top td:hover {
   background-color: gold;
 }
+<<<<<<< HEAD
 #column-top td:active {
   box-shadow: 0 0 10px rgba(0,0,0,.7) inset;
 }
@@ -133,8 +139,18 @@ body{
 @keyframes drop {
   from {
       transform: translateY(-600px);
+=======
+
+@keyframes drop {
+  from {
+      transform: translateY(-400px);
+>>>>>>> 9f821e843e4790f661f93e062c998c90ab33b2c5
   }
   to {
       transform: translateY(0);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9f821e843e4790f661f93e062c998c90ab33b2c5
