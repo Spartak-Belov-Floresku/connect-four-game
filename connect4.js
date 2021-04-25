@@ -160,11 +160,7 @@ const checkForWin = () => {
   }
 
   // TODO: read and understand this code. Add comments to help you.
-<<<<<<< HEAD
-  //creates four two dimensional arrays with coordinates-indexes.
-=======
   // creates four two dimensional arrays with coordinates-indexes
->>>>>>> 9f821e843e4790f661f93e062c998c90ab33b2c5
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
