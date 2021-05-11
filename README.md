@@ -11,4 +11,4 @@ The game is a tie if the entire board fills up without a winner.
 
 https://spartak-belov-floresku.github.io/connect-four-game/
 
-![Optional Text]('https://repository-images.githubusercontent.com/361279512/73b67600-b21f-11eb-80b5-a5b8c02dd44b')
+Now add ![alt tag]('https://repository-images.githubusercontent.com/361279512/73b67600-b21f-11eb-80b5-a5b8c02dd44b')
